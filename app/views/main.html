@@ -1,23 +1,34 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="container">
+  <h1>Webform</h1>
+  <ul class="list-inline">
+    <li ng-repeat="pastObj in history">
+      <a href="" ng-click="changeObject(pastObj)">
+        [{{toString(pastObj)}}]
+      </a> > 
+    </li>
+  </ul>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="row" ng-repeat="pair in object">
+    <div class="col-xs-5">
+      <input ng-model="pair.key" class="form-control" />
+    </div>
+    <div class="col-xs-6" ng-if="!pair.isObj">
+      <input class="form-control"
+      ng-model="pair.value" 
+      ng-focus="showValue(pair)"
+      ng-blur="updateValue(pair)"/>
+    </div>
+    <div class="col-xs-6" ng-if="pair.isObj">
+      <a href="" class="btn" ng-click="changeObject(pair.value)">
+        [{{toString(pair.value)}}]
+      </a>
+    </div>
+    <div class="col-xs-1">
+    </div>
+  </div>
+  <div class="row"><div class="col-xs-12">
+    <button class="btn" ng-click="add()">Add value</button>
+  </div></div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>
