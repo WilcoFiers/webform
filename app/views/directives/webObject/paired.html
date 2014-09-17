@@ -1,0 +1,10 @@
+<div ng-repeat="(key, value) in hashMap" class="row">
+	<div tabindex="0" class="col-xs-6"
+	ng-if="!keyEdit"
+	ng-click="openField($event)">{{key}}:</div>
+	<div ng-if="keyEdit">
+		<input type="text" class="form-field"
+	</div>
+
+	<div tabindex="0" class="col-xs-6">{{value}}</div>
+</div>
